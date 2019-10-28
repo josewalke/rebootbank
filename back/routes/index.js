@@ -6,4 +6,5 @@ const usersRouter = require('./users.router')
 router.use('/auth', authRouter)
 router.use('/users', usersRouter)
 
+
 module.exports = router

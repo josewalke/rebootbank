@@ -21,17 +21,9 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['host', 'regular'],
+    enum: ['Admin', 'Empleado'],
     required: false,
     default: 'regular'
-  },
-  birthDate: {
-    type: Number,
-    required: false
-  },
-  createdAt: {
-    type: Number,
-    default: Date.now() // Get a timestamp :)
   }
 })
 
