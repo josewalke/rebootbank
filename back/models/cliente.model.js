@@ -1,9 +1,6 @@
 const mongoose = require('mongoose')
 
 const clienteSchema = new mongoose.Schema({
-    id: {
-        type: Number,
-    },
     ticket: {
         type: Number,
     },
@@ -15,12 +12,11 @@ const clienteSchema = new mongoose.Schema({
             }
         }
     },
-    atendido: {
-        type: Boolean,
-    },
-    espera: {
-        type: Boolean,
-    }
+   status: {
+       type: String,
+       enum: ['atendido', 'proceso', 'espera'],
+       default: 'espera'
+   }
 })
 
 const clienteModel = mongoose.model('cliente', clienteSchema)

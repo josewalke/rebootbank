@@ -1,4 +1,7 @@
 const router = require('express').Router()
+const {
+  autAdmin
+} = require('../middleware/authentication')
 
 const {
   getAllUsers,
@@ -9,7 +12,7 @@ const {
 
 router.get('/', getAllUsers)
 router.get('/:id', getUserById)
-router.delete('/:id', deleteUserById)
+router.delete('/:id',autAdmin, deleteUserById)
 router.put('/:id', updateUser)
 
 module.exports = router
