@@ -9,11 +9,19 @@ const autEmpleado = (req, res, next) => {
             })
         }
         UserModel.findOne({
-                email: token.email
+                email: token.email,
+                rol: "Empleado"
+                //rol: "admin"
             })
             .then(user => {
-                res.locals.user = user
-                next()
+                if(user){
+                    res.locals.user = user
+                    next()
+                }else{
+                    res.status(403).json({
+                        error: 'Prohibido el acceso'
+                    })
+                }
             })
     });
 }
@@ -26,11 +34,19 @@ const autAdmin = (req, res, next) => {
             })
         }
         UserModel.findOne({
-                email: token.email
+                email: token.email,
+                rol: "Admin"
             })
             .then(user => {
-                res.locals.user = user
-                next()
+                if(user){
+                    res.locals.user = user
+                    next()
+                }else{
+                    res.status(403).json({
+                        error: 'Token not valid'
+                    })
+                }
+                
             })
     });
 }
