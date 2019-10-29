@@ -4,13 +4,17 @@ const {
 } = require('../middleware/authentication')
 
 const {
-  getAllUsers,
+  nextCliente,
   getUserById,
   deleteUserById,
-  updateUser
+  updateUser,
+  primerCliente,
+  beforeCliente
 } = require('../controlers/users.controller')
 
-router.get('/', getAllUsers)
+router.get('/', primerCliente)
+router.get('/next', nextCliente)
+router.get('/before', beforeCliente)
 router.get('/:id', getUserById)
 router.delete('/:id',autAdmin, deleteUserById)
 router.put('/:id', updateUser)

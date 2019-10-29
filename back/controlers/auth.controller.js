@@ -25,8 +25,8 @@ function signup (req, res) {
         'secret', // TODO SECRET MORE SECRET PLEASE
         { expiresIn: '1w' }
       )
-
-      return res.json({ token: token, ...userData })
+      console.log('usuario creado');
+      //return res.json({ token: token, ...userData })
     })
     .catch((err) => {
       res.status(403).json({ error: err })
