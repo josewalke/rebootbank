@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {
-  autAdmin
+  autAdmin,
+  autEmpleado
 } = require('../middleware/authentication')
 const {
   login,

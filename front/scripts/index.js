@@ -7,7 +7,7 @@
 })()
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api/",
+  baseURL: "http://localhost:2222/api/",
   timeout: 1000
 });
 
@@ -19,7 +19,11 @@ document.getElementById('btn-signup').addEventListener('click', (event) => {
   };
 
   api
-    .post("auth/signup", newUser)
+    .post("auth/signup", newUser, {
+      headers: {
+        token: localStorage.getItem("token")
+      }
+    })
     .then(function (response) {
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("name",  response.data.name);
@@ -42,8 +46,10 @@ document.getElementById('btn-login').addEventListener('click', (event) => {
     .post("auth/login", newUser)
     .then(function (response) {
       localStorage.setItem("token", response.data.token);
+      //console.log(response.data.token);
       localStorage.setItem("name",  response.data.name);
       localStorage.setItem("email", response.data.email);
+      localStorage.setItem("rol", response.data.rol);
       console.log(response.data)
     })
     .catch(function (error) {

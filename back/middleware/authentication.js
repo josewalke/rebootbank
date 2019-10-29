@@ -27,9 +27,10 @@ const autEmpleado = (req, res, next) => {
 }
 
 const autAdmin = (req, res, next) => {
+    //console.log(req.headers)
     jwt.verify(req.headers.token, 'secret', (err, token) => {
         if (err) {
-            res.status(403).json({
+            return res.status(403).json({
                 error: 'Token not valid'
             })
         }
