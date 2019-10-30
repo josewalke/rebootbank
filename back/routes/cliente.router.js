@@ -10,13 +10,20 @@ const {
    updateClienteProceso,
    updateClienteAtendido,
    updateClienteEmail,
-   getAll
+   getAll,
+   contartickets,
+   miTicket,
+   turno
 } = require('../controlers/cliente.controller');
 
-router.get("/",autEmpleado,getAll);
+router.get("/",getAll);
+router.get("/count", contartickets);
 router.post('/:ticket', insertCliente);
-router.put('/:ticket/proceso', autEmpleado, updateClienteProceso);
-router.put('/:ticket/atendido', autEmpleado, updateClienteAtendido);
-router.put('/:ticket/email', autEmpleado, updateClienteEmail);
+router.put('/:ticket/proceso', updateClienteProceso);
+router.put('/:ticket/atendido', updateClienteAtendido);
+router.put('/:ticket/email', updateClienteEmail);
+router.get('/:ticket/numero',miTicket);
+router.get('/:ticket/cola',turno);
+
 
 module.exports = router

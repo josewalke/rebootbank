@@ -5,7 +5,10 @@ module.exports = {
     updateClienteProceso,
     updateClienteAtendido,
     updateClienteEmail,
-    getAll
+    getAll,
+    contartickets,
+    miTicket,
+    turno
 }
 
 function insertCliente(req, res) {
@@ -50,14 +53,26 @@ function updateClienteEmail(req,res){
     clienteModel.findOneAndUpdate({
             ticket: req.params.ticket
         }, {
-            email: req.body.email
+            email: req.body.remitente
         })
-        .then(response => res.json(response))
+        .then(response => res.json('Actualizado'))
         .catch((err) => handdleError(err, res))
 }
 
 function getAll(req,res){
     clienteModel.find()
+    .then(response => res.json(response))
+    .catch((err) => handdleError(err, res))
+}
+
+function miTicket(req,res){
+    clienteModel.findOne({ticket: req.params.ticket})
+    .then(response => res.json(response))
+    .catch((err) => handdleError(err, res))
+}
+
+function turno(req,res){
+    clienteModel.find({ticket: {$lt:req.params.ticket}, status: "espera"}).count()
     .then(response => res.json(response))
     .catch((err) => handdleError(err, res))
 }

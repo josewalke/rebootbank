@@ -12,8 +12,8 @@ const api = axios.create({
 });
 
 document.getElementById('btn-escanerqr').addEventListener('click', (event) => {
-    console.log('codigoQR')
-    //setTimeout("location.href='./codigoQR.html'");
+    //console.log('codigoQR')
+    setTimeout("location.href='./codigoQR.html'");
 })
 document.getElementById('btn-correo').addEventListener('click', (event) => {
     //console.log('correo')

@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const jwt = require('jsonwebtoken')
 const app = express()
 
+
 // CONFIG AND ENVIRONMENT LOADING FROM .env FILE
 let config = require('./.env')
 const environment = process.env.NODE_ENV
@@ -17,6 +18,7 @@ if (!config) {
 app.use(cors())
 app.use(morgan('combined'))
 app.use(express.json())
+
 
 // NONGOOSE
 mongoose.connect(config.mongoURL + config.mongoDBName, { useNewUrlParser: true }, (err)=> {

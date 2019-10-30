@@ -11,7 +11,7 @@ const api = axios.create({
     timeout: 1000
 });
 
-var prueba = document.getElementById('num_ticket')
+var ver_ticket = document.getElementById('num_ticket')
 
 api.get(`users`, {
         headers: {
@@ -21,7 +21,7 @@ api.get(`users`, {
     .then(data => {
         console.log(data.data);
         var nuevo = data.data.ticket
-        return prueba.innerHTML = nuevo;
+        return ver_ticket.innerHTML = nuevo;
     })
 
 document.getElementById('btn-siguiente').addEventListener('click', (event) => {
@@ -29,12 +29,12 @@ document.getElementById('btn-siguiente').addEventListener('click', (event) => {
             headers: {
                 token: localStorage.getItem("token")
             }
-        })
-        .then(data => {
-            console.log(data.data);
-            var nuevo = data.data.ticket
-            return prueba.innerHTML = nuevo;
-        })
+    })
+    .then(data => {
+        console.log(data.data);
+        var nuevo = data.data.ticket
+        return ver_ticket.innerHTML = nuevo;
+    })
 })
 
 document.getElementById('btn-volver').addEventListener('click', (event) => {
@@ -46,6 +46,6 @@ document.getElementById('btn-volver').addEventListener('click', (event) => {
         .then(data => {
             console.log(data.data);
             var nuevo = data.data.ticket
-            return prueba.innerHTML = nuevo;
+            return ver_ticket.innerHTML = nuevo;
         })
 })
