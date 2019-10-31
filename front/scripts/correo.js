@@ -14,7 +14,7 @@ const api = axios.create({
 document.getElementById('btn-enviar').addEventListener('click', (event) => {
     var remitente = document.getElementById('remitente');
 
-    api.post(`correo/${remitente.value}`, {
+    api.post(`correo/${remitente.value}/insert`, {
             headers: {
                 token: localStorage.getItem("token")
             }
@@ -23,6 +23,6 @@ document.getElementById('btn-enviar').addEventListener('click', (event) => {
             console.log(data.data);
             return data.data
         })
-
+    setTimeout("location.href='./inicio.html'");
     console.log('enviar')
 })

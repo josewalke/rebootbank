@@ -3,6 +3,7 @@
         console.log('user authenticated')
     } else {
         console.log('user not authenticated')
+        //location.href = 'https://ichef.bbci.co.uk/news/ws/660/amz/worldservice/live/assets/images/2015/04/17/150417194023_einstein-lengua.jpg'
     }
 })()
 

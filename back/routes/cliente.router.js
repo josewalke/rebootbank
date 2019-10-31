@@ -13,7 +13,8 @@ const {
    getAll,
    contartickets,
    miTicket,
-   turno
+   turno,
+   salida
 } = require('../controlers/cliente.controller');
 
 router.get("/",getAll);
@@ -24,6 +25,7 @@ router.put('/:ticket/atendido', updateClienteAtendido);
 router.put('/:ticket/email', updateClienteEmail);
 router.get('/:ticket/numero',miTicket);
 router.get('/:ticket/cola',turno);
+router.get('/:ticket/proceso',salida);
 
 
 module.exports = router

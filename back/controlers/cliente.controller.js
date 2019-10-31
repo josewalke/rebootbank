@@ -8,7 +8,8 @@ module.exports = {
     getAll,
     contartickets,
     miTicket,
-    turno
+    turno,
+    salida
 }
 
 function insertCliente(req, res) {
@@ -18,14 +19,20 @@ function insertCliente(req, res) {
         ticket: +req.params.ticket
 
     }
-    console.log(clienteBody);
-   return clienteModel.create(clienteBody)
-        .then(response => res.json(response))
-        .catch((err) => handdleError(err, res))
+    clienteModel.findOne(clientBody)
+        .then(client => {
+            if (client) {
+                return res.json(user);
+            } else {
+                return clienteModel.create(clienteBody)
+                    .then(response => res.json(response))
+                    .catch((err) => handdleError(err, res))
+            }
+        })
 }
 
-function contartickets(req,res){
-   return clienteModel.find().count()
+function contartickets(req, res) {
+    return clienteModel.find().count()
         .then(response => res.json(response + 1))
         .catch((err) => handdleError(err, res))
 }
@@ -39,6 +46,7 @@ function updateClienteProceso(req, res) {
         .then(response => res.json(response))
         .catch((err) => handdleError(err, res))
 }
+
 function updateClienteAtendido(req, res) {
     clienteModel.findOneAndUpdate({
             ticket: req.params.ticket
@@ -49,7 +57,7 @@ function updateClienteAtendido(req, res) {
         .catch((err) => handdleError(err, res))
 }
 
-function updateClienteEmail(req,res){
+function updateClienteEmail(req, res) {
     clienteModel.findOneAndUpdate({
             ticket: req.params.ticket
         }, {
@@ -59,20 +67,36 @@ function updateClienteEmail(req,res){
         .catch((err) => handdleError(err, res))
 }
 
-function getAll(req,res){
+function getAll(req, res) {
     clienteModel.find()
-    .then(response => res.json(response))
-    .catch((err) => handdleError(err, res))
+        .then(response => res.json(response))
+        .catch((err) => handdleError(err, res))
 }
 
-function miTicket(req,res){
-    clienteModel.findOne({ticket: req.params.ticket})
-    .then(response => res.json(response))
-    .catch((err) => handdleError(err, res))
+function miTicket(req, res) {
+    clienteModel.findOne({
+            ticket: req.params.ticket
+        })
+        .then(response => res.json(response.ticket))
+        .catch((err) => handdleError(err, res))
 }
 
-function turno(req,res){
-    clienteModel.find({ticket: {$lt:req.params.ticket}, status: "espera"}).count()
-    .then(response => res.json(response))
-    .catch((err) => handdleError(err, res))
+function turno(req, res) {
+    clienteModel.find({
+            ticket: {
+                $lt: req.params.ticket
+            },
+            status: "espera"
+        }).count()
+        .then(response => res.json(response))
+        .catch((err) => handdleError(err, res))
+}
+
+function salida(req, res) {
+    clienteModel.findOne({
+            ticket: req.params.ticket,
+            status: "proceso"
+        })
+        .then(response => res.json(response.status))
+        .catch((err) => handdleError(err, res))
 }

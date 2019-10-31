@@ -1,5 +1,6 @@
 const UserModel = require('../models/users.model')
 const clienteModel = require('../models/cliente.model')
+const nodemailer = require('nodemailer');
 
 module.exports = {
   nextCliente,
@@ -9,6 +10,9 @@ module.exports = {
   primerCliente,
   beforeCliente
 }
+let config = require('../.env')
+const environment = process.env.NODE_ENV
+config = config[environment]
 
 function primerCliente(req, res) {
   clienteModel
@@ -32,7 +36,44 @@ function nextCliente(req, res) {
           status: "proceso"
         })
         .then(response => {
-          return res.json(response)
+          //return res.json(response)
+          clienteModel.findOne({
+              status: "proceso"
+            })
+            .then(buscar => {
+              var encontrar = buscar.ticket + 2;
+              //console.log(encontrar);
+              clienteModel.findOne({
+                  ticket: encontrar
+                })
+                .then(encontrado => {
+                  var email = encontrado.email;
+                  //console.log(email);
+                  var transporter = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                      user: config.nodemailer.email,
+                      pass: config.nodemailer.password
+                    }
+                  });
+                  const mailOptions = {
+                    from: 'worktrabajo47@gmail.com', // sender address
+                    to: email, // list of receivers
+                    subject: 'Rebootbank', // Subject line
+                    html: '<p>Hay dos personas por delante</p>' // plain text body
+                  };
+                  transporter.sendMail(mailOptions, function (err, info) {
+                    if (err)
+                      console.log(err)
+                    else
+                      console.log(info);
+
+                    res.json(response)
+                  });
+                  return console.log(email);
+                })
+              res.json(response);
+            })
         })
     })
     .catch((err) => handdleError(err, res))
@@ -47,7 +88,7 @@ function beforeCliente(req, res) {
     .then(update => {
       console.log(update)
       clienteModel.findOneAndUpdate({
-          ticket: update.ticket-1,
+          ticket: update.ticket - 1,
           status: "atendido"
         }, {
           status: "proceso"

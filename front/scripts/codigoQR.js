@@ -19,7 +19,12 @@ api.get('cliente/count', {
     //console.log(data.data);
     var count = data.data
     var span = document.getElementById('count');
-    console.log(count)
-    span.innerHTML = count;
-    console.log(span.innerHTML)
+    span.value = count;
+
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+        width: 500,
+        height: 500
+    });
+    var count = document.getElementById('count');
+    qrcode.makeCode("http://localhost:8080//cola?ticket=" + count.value + '&mode=QR');
 })
