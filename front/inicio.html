@@ -2,19 +2,34 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Caja de Ticket</title>
-    <link rel="stylesheet" href="./styles/reset.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Caja de Ticket</title>
+  <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
-    <h1 id='num_ticket'></h1>
-    <button id='btn-escanerqr'>EscanerQR</button>
-    <button id='btn-correo'>Correo</button>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-    <script src="./scripts/inicio.js"></script>
+<body class="text-center">
+  <div>
+    <div>
+      <h1 class="fond-green">Rebootbank</h1>
+    </div>
+    <br>
+    <div class="text-center">
+      <h1>¿Cómo quiere su ticket?</h1>
+    </div>
+    <br>
+    <br>
+    <div>
+      <button id="btn-escanerqr">EscanerQR</button>
+      
+      <button id="btn-correo">Correo</button>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script src="./scripts/inicio.js"></script>
 </body>
 
 </html>

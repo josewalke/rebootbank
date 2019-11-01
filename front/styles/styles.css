@@ -1,15 +1,53 @@
-body {
-  padding: 40px;
-}
-label, button {
-  display: block;
-}
-
-input {
-  margin-bottom: 20px;
-}
-#register, #login {
+#register,
+#login {
   width: 40%;
   display: inline-block;
   vertical-align: top;
+}
+body{
+  position: relative;
+}
+.fond-green {
+  background-color: rgb(19, 233, 19);
+  padding: 20px;
+  font-size: 100px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#btn-escanerqr {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 34px;
+  width: 304px;
+  height: 258px;
+  font-size: 50px;
+  margin-right:100px;
+  outline:none;
+}
+#btn-correo {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  box-shadow: -5px 5px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 34px;
+  width: 304px;
+  height: 258px;
+  font-size: 50px;
+  outline:none;
+}
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
+}
+#qrcode{
+  position: absolute;
+  display: inline;
+  margin: 0 auto;
+}
+a{
+  position: absolute;
+  margin-top: 5rem;
 }

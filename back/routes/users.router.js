@@ -16,7 +16,7 @@ router.get('/', primerCliente)
 router.get('/next', nextCliente)
 router.get('/before', beforeCliente)
 router.get('/:id', getUserById)
-router.delete('/:id',autAdmin, deleteUserById)
+router.delete('/:id', autAdmin, deleteUserById)
 router.put('/:id', updateUser)
 
 module.exports = router
