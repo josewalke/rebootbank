@@ -13,9 +13,10 @@ module.exports = {
 }
 
 function insertCliente (req, res) {
+  const count = contartickets(req, res)
   clienteModel
-    .create({ email: req.body.email })
-    .then(cliente => { res.json(cliente) })
+    .create({ ticket: count, email: req.body.email })
+    .then(cliente => res.json(cliente))
     .catch((err) => handleError(err, res))
 }
 
@@ -38,8 +39,10 @@ function insertCliente (req, res) {
 // }
 
 function contartickets (req, res) {
-  return clienteModel.find().count()
-    .then(response => res.json(response + 1))
+  clienteModel.find().count()
+    .then(response => {
+      return res.json(response + 1)
+    })
     .catch((err) => handleError(err, res))
 }
 

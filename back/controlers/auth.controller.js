@@ -25,8 +25,8 @@ function signup (req, res) {
         'secret', // TODO SECRET MORE SECRET PLEASE
         { expiresIn: '1w' }
       )
-      console.log('usuario creado');
-      //return res.json({ token: token, ...userData })
+      console.log('usuario creado')
+      // return res.json({ token: token, ...userData })
     })
     .catch((err) => {
       res.status(403).json({ error: err })
@@ -41,14 +41,11 @@ function login (req, res) {
 
       bcrypt.compare(req.body.user_password, user.password, (err, result) => {
         if (!result) { return res.json({ error: `wrong password for ${req.body.user_email}` }) }
-
         const userData = { name: user.name, email: user.email, rol: user.rol }
-
         const token = jwt.sign(
           userData,
           'secret', // TODO SECRET MORE SECRET PLEASE
-          { expiresIn: '1h' }
-        )
+          { expiresIn: '1h' })
 
         return res.json({ token: token, ...userData })
       })

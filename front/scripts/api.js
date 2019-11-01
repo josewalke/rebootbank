@@ -6,11 +6,10 @@ function API () {
 
   this.addClient = email => {
     return this.base_api
-      .post('clientes', { email } )
+      .post('clientes', { email })
       .then(response => { return response.data })
       .catch(err => new Error(err))
   }
-
 }
 
 const api = new API()
