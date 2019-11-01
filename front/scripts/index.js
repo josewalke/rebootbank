@@ -1,5 +1,5 @@
 (function authenticated () {
-  if (window.localStorage.getItem('token')) {
+  if (localStorage.getItem('token')) {
     console.log('user authenticated')
   } else {
     console.log('user not authenticated')
@@ -21,13 +21,13 @@ document.getElementById('btn-signup').addEventListener('click', (event) => {
   api
     .post('auth/signup', newUser, {
       headers: {
-        token: window.localStorage.getItem('token')
+        token: localStorage.getItem('token')
       }
     })
     .then(function (response) {
-      window.localStorage.setItem('token', response.data.token)
-      window.localStorage.setItem('name', response.data.name)
-      window.localStorage.setItem('email', response.data.email)
+      localStorage.setItem('token', response.data.token)
+      localStorage.setItem('name', response.data.name)
+      localStorage.setItem('email', response.data.email)
     })
     .catch(function (error) {
       console.log(error.response)
@@ -59,11 +59,7 @@ document.getElementById('btn-login').addEventListener('click', (event) => {
 
 document.getElementById('btn-api').addEventListener('click', (event) => {
   api
-    .get('whoami', {
-      headers: {
-        token: window.localStorage.getItem('token')
-      }
-    })
+    .get('whoami', { headers: { token: localStorage.getItem('token') } })
     .then(function (response) {
       console.log(response.data)
     })

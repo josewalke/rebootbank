@@ -1,4 +1,9 @@
 const clienteModel = require('../models/cliente.model')
+const nodeMailer = require('nodemailer')
+
+let config = require('../.env')
+const environment = process.env.NODE_ENV
+config = config[environment]
 
 module.exports = {
   insertCliente,
@@ -13,11 +18,39 @@ module.exports = {
 }
 
 function insertCliente (req, res) {
-  const count = contartickets(req, res)
-  clienteModel
-    .create({ ticket: count, email: req.body.email })
-    .then(cliente => res.json(cliente))
-    .catch((err) => handleError(err, res))
+  contartickets(req, res)
+    .then(count => {
+      const newcount = count + 1
+      clienteModel
+        .create({ ticket: newcount, email: req.body.email })
+        .then(cliente => {
+          var transporter = nodeMailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: config.nodemailer.email,
+              pass: config.nodemailer.password
+            }
+          })
+          const mailOptions = {
+            from: 'worktrabajo47@gmail.com', // sender address
+            to: req.body.email, // list of receivers
+            subject: 'Rebootbank', // Subject line
+            html: `<p>Su ticket es el numero ${newcount}</p>
+                                <button> <a href="http://localhost:8080/cola2.html?ticket=${newcount}"> PULSAME </a> </button>
+                                ` // plain text body
+          }
+          transporter.sendMail(mailOptions, function (err, info) {
+            if (err) {
+              console.log(err)
+            } else {
+              console.log(info)
+            }
+          })
+          // return console.log(email)
+          return res.json(cliente)
+        })
+        .catch((err) => handleError(err, res))
+    })
 }
 
 // function insertCliente (req, res) {
@@ -39,11 +72,13 @@ function insertCliente (req, res) {
 // }
 
 function contartickets (req, res) {
-  clienteModel.find().count()
-    .then(response => {
-      return res.json(response + 1)
-    })
-    .catch((err) => handleError(err, res))
+  return clienteModel.countDocuments((err, count) => {
+    return count
+  })
+  // .then(response => {
+  //   return res.json(response + 1)
+  // })
+  // .catch((err) => handleError(err, res))
 }
 
 function updateClienteProceso (req, res) {
