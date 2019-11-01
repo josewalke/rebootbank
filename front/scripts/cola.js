@@ -33,31 +33,31 @@ if (mode === 'QR') {
 
 api.post(`cliente/${ticket}`, {
   headers: {
-    token: localStorage.getItem('token')
+    token: window.localStorage.getItem('token')
   }
 })
   .then(data => {
     console.log(data.data)
   })
 
-var ver_ticket = document.getElementById('miTicket')
-var ver_cola = document.getElementById('cola')
+var verTicket = document.getElementById('miTicket')
+var verCola = document.getElementById('cola')
 
 api.get(`cliente/${ticket}/numero`, {
   headers: {
-    token: localStorage.getItem('token')
+    token: window.localStorage.getItem('token')
   }
 })
   .then(data => {
     console.log(data.data)
     var nuevo = data.data
-    return ver_ticket.innerHTML = nuevo
+    return verTicket.innerHTML = nuevo
   })
 
 function updatePendingClients () {
   api.get(`cliente/${ticket}/cola`, {
     headers: {
-      token: localStorage.getItem('token')
+      token: window.localStorage.getItem('token')
     }
   })
     .then(data => {
@@ -65,10 +65,10 @@ function updatePendingClients () {
       var nuevo = data.data
       if (nuevo === 0) {
         document.getElementById('quitar').style.display = 'none'
-        return ver_cola.innerHTML = 'Enseguida le atenderemos'
+        return verCola.innerHTML = 'Enseguida le atenderemos'
       } else {
         document.getElementById('quitar').style.display = 'inline'
-        return ver_cola.innerHTML = nuevo
+        return verCola.innerHTML = nuevo
       }
     })
 }

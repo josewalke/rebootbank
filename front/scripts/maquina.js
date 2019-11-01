@@ -8,3 +8,7 @@ document.getElementById('btn-enviar')
         // window.location.href = './inicio.html'
       })
   })
+api.qr()
+  .then(response => {
+    console.log(response)
+  })

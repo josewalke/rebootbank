@@ -12,6 +12,7 @@ module.exports = {
   updateClienteEmail,
   getAll,
   contartickets,
+  contartickets2,
   miTicket,
   turno,
   salida
@@ -36,8 +37,8 @@ function insertCliente (req, res) {
             to: req.body.email, // list of receivers
             subject: 'Rebootbank', // Subject line
             html: `<p>Su ticket es el numero ${newcount}</p>
-                                <button> <a href="http://localhost:8080/cola2.html?ticket=${newcount}"> PULSAME </a> </button>
-                                ` // plain text body
+                  <button> <a href="http://localhost:8080/cola2.html?ticket=${newcount}"> PULSAME </a> </button>
+                  ` // plain text body
           }
           transporter.sendMail(mailOptions, function (err, info) {
             if (err) {
@@ -80,7 +81,13 @@ function contartickets (req, res) {
   // })
   // .catch((err) => handleError(err, res))
 }
-
+function contartickets2 (req, res) {
+  return clienteModel.find().count()
+    .then(response => {
+      return res.json(response + 1)
+    })
+    .catch((err) => handleError(err, res))
+}
 function updateClienteProceso (req, res) {
   clienteModel.findOneAndUpdate({
     ticket: req.params.ticket

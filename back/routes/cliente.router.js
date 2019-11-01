@@ -11,7 +11,7 @@ const {
   updateClienteAtendido,
   updateClienteEmail,
   getAll,
-  contartickets,
+  contartickets2,
   miTicket,
   turno,
   salida
@@ -21,7 +21,7 @@ router.post('/', insertCliente)
 
 // FROM HERE DOWN IS USELESS
 router.get('/', getAll)
-router.get('/count', contartickets)
+router.get('/count', contartickets2)
 router.put('/:ticket/proceso', updateClienteProceso)
 router.put('/:ticket/atendido', updateClienteAtendido)
 router.put('/:ticket/email', updateClienteEmail)

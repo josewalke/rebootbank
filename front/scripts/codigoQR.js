@@ -13,5 +13,6 @@ api.get('clientes/count')
       width: 500,
       height: 500
     })
-    qrcode.makeCode('http://localhost:8080//cola?ticket=' + count.value + '&mode=QR')
+    span.innerHTML = count;
+    qrcode.makeCode('http://localhost:8080//cola?ticket=' + count + '&mode=QR')
   })
