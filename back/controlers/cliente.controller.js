@@ -13,27 +13,34 @@ module.exports = {
 }
 
 function insertCliente (req, res) {
-  // let newticket = contartickets
-  const clienteBody = {
-    // ticket: newticket
-    ticket: +req.params.ticket
-
-  }
-  clienteModel.findOne(clientBody)
-    .then(client => {
-      if (client) { return res.json(client) }
-      else {
-        return clienteModel.create(clienteBody)
-          .then(response => res.json(response))
-          .catch((err) => handdleError(err, res))
-      }
-    })
+  clienteModel
+    .create({ email: req.body.email })
+    .then(cliente => { res.json(cliente) })
+    .catch((err) => handleError(err, res))
 }
+
+// function insertCliente (req, res) {
+//   // let newticket = contartickets
+//   const clienteBody = {
+//     // ticket: newticket
+//     ticket: +req.params.ticket
+
+//   }
+//   clienteModel.findOne(clientBody)
+//     .then(client => {
+//       if (client) { return res.json(client) }
+//       else {
+//         return clienteModel.create(clienteBody)
+//           .then(response => res.json(response))
+//           .catch((err) => handleError(err, res))
+//       }
+//     })
+// }
 
 function contartickets (req, res) {
   return clienteModel.find().count()
     .then(response => res.json(response + 1))
-    .catch((err) => handdleError(err, res))
+    .catch((err) => handleError(err, res))
 }
 
 function updateClienteProceso (req, res) {
@@ -43,7 +50,7 @@ function updateClienteProceso (req, res) {
     status: 'proceso'
   })
     .then(response => res.json(response))
-    .catch((err) => handdleError(err, res))
+    .catch((err) => handleError(err, res))
 }
 
 function updateClienteAtendido (req, res) {
@@ -53,7 +60,7 @@ function updateClienteAtendido (req, res) {
     status: 'atendido'
   })
     .then(response => res.json(response))
-    .catch((err) => handdleError(err, res))
+    .catch((err) => handleError(err, res))
 }
 
 function updateClienteEmail (req, res) {
@@ -63,13 +70,13 @@ function updateClienteEmail (req, res) {
     email: req.body.remitente
   })
     .then(response => res.json('Actualizado'))
-    .catch((err) => handdleError(err, res))
+    .catch((err) => handleError(err, res))
 }
 
 function getAll (req, res) {
   clienteModel.find()
     .then(response => res.json(response))
-    .catch((err) => handdleError(err, res))
+    .catch((err) => handleError(err, res))
 }
 
 function miTicket (req, res) {
@@ -77,7 +84,7 @@ function miTicket (req, res) {
     ticket: req.params.ticket
   })
     .then(response => res.json(response.ticket))
-    .catch((err) => handdleError(err, res))
+    .catch((err) => handleError(err, res))
 }
 
 function turno (req, res) {
@@ -88,7 +95,7 @@ function turno (req, res) {
     status: 'espera'
   }).count()
     .then(response => res.json(response))
-    .catch((err) => handdleError(err, res))
+    .catch((err) => handleError(err, res))
 }
 
 function salida (req, res) {
@@ -97,5 +104,9 @@ function salida (req, res) {
     status: 'proceso'
   })
     .then(response => res.json(response.status))
-    .catch((err) => handdleError(err, res))
+    .catch((err) => handleError(err, res))
+}
+
+function handleError (err, res) {
+  return res.status(400).json(err)
 }
