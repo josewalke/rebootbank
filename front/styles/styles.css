@@ -38,7 +38,6 @@ body{
   outline:none;
 }
 button:active {
-  background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(2px);
 }
@@ -50,4 +49,36 @@ button:active {
 a{
   position: absolute;
   margin-top: 5rem;
+}
+#remitente{
+  width: 800px;
+  height: 108px;
+  left: calc(50% - 314px/2 + 0.5px);
+  top: calc(50% - 58px/2 + 37.5px);
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 15px;
+  outline:none;
+  font-size: 50px;
+  text-align: center;
+}
+#label-correo{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100px;
+  line-height: 41px;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+#btn-enviar{
+  width: 200px;
+  height: 100px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  outline:none;
+  font-size: 50px;
 }
