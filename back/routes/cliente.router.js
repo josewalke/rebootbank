@@ -29,6 +29,6 @@ router.put('/:ticket/atendido', updateClienteAtendido)
 router.put('/:ticket/email', updateClienteEmail)
 router.get('/:ticket/numero', miTicket)
 router.get('/:ticket/cola', turno)
-router.get('/:ticket/proceso', salida)
+router.get('/:ticket/final', salida)
 
 module.exports = router

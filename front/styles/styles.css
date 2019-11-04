@@ -4,9 +4,11 @@
   display: inline-block;
   vertical-align: top;
 }
-body{
+
+body {
   position: relative;
 }
+
 .fond-green {
   background-color: rgb(19, 233, 19);
   padding: 20px;
@@ -23,9 +25,10 @@ body{
   width: 304px;
   height: 258px;
   font-size: 50px;
-  margin-right:100px;
-  outline:none;
+  margin-right: 100px;
+  outline: none;
 }
+
 #btn-correo {
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -35,22 +38,26 @@ body{
   width: 304px;
   height: 258px;
   font-size: 50px;
-  outline:none;
+  outline: none;
 }
+
 button:active {
   box-shadow: 0 5px #666;
   transform: translateY(2px);
 }
-#qrcode{
+
+#qrcode {
   position: absolute;
   display: inline;
   margin: 0 auto;
 }
-a{
+
+a {
   position: absolute;
   margin-top: 5rem;
 }
-#remitente{
+
+#remitente {
   width: 800px;
   height: 108px;
   left: calc(50% - 314px/2 + 0.5px);
@@ -59,11 +66,12 @@ a{
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 15px;
-  outline:none;
+  outline: none;
   font-size: 50px;
   text-align: center;
 }
-#label-correo{
+
+#label-correo {
   font-style: normal;
   font-weight: normal;
   font-size: 100px;
@@ -72,13 +80,150 @@ a{
   text-align: center;
   color: #000000;
 }
-#btn-enviar{
+
+#btn-enviar {
   width: 200px;
   height: 100px;
   border: 1px solid #000000;
   box-sizing: border-box;
   backdrop-filter: blur(4px);
   border-radius: 15px;
-  outline:none;
+  outline: none;
   font-size: 50px;
+}
+
+#texto-1 {
+  left: calc(50% - 1027px/2 + 0.5px);
+  top: calc(50% - 425px/2 - 0.5px);
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 148px;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+
+#miTicket {
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 200px;
+  line-height: 74px;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}
+
+#titulo-final {
+  left: calc(50% - 634px/2);
+  top: calc(50% - 215px/2 - 107.5px);
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 148px;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}
+
+#miTicketFinal {
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 200px;
+  line-height: 74px;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}
+
+#gracias {
+  left: calc(50% - 524px/2);
+  top: calc(50% - 255px/2 + 236.5px);
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 74px;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+
+.titulo-caja {
+  left: calc(50% - 634px/2);
+  top: calc(50% - 215px/2 - 107.5px);
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 148px;
+  color: #000000;
+}
+
+#num_ticket {
+  font-size: 200px;
+}
+
+#btn-siguiente{
+  background: rgb(19, 233, 19);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 34px;
+  width: 304px;
+  height: 258px;
+  font-size: 50px;
+  margin-right: 100px;
+  outline: none;
+  color: white;
+}
+#btn-volver{
+  background: rgb(19, 233, 19);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  box-shadow: -5px 5px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 34px;
+  width: 304px;
+  height: 258px;
+  font-size: 50px;
+  outline: none;
+  color: white;
+}
+
+div#login label{
+  font-size: 50px;
+}
+div#login input {
+  width: 700px;
+  height: 98px;
+  left: calc(50% - 314px/2 + 0.5px);
+  top: calc(50% - 58px/2 + 37.5px);
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 15px;
+  outline: none;
+  font-size: 40px;
+  text-align: center;
+}
+.sesion{
+  font-size: 50px;
+}
+
+#btn-login{
+  width: 150px;
+  height: 50px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  outline: none;
+  font-size: 25px;
 }

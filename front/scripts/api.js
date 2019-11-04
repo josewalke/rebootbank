@@ -70,8 +70,8 @@ function API () {
         }
       })
       .then(data => {
-        console.log(data.data)
-        var nuevo = data.data
+        console.log(data.data.status)
+        var nuevo = data.data.ticket
         return verTicket.innerHTML = nuevo
       })
   }
@@ -83,7 +83,7 @@ function API () {
         }
       })
       .then(data => {
-        console.log(data.data)
+        //console.log(data.data)
         var nuevo = data.data
         if (nuevo === 0) {
           document.getElementById('quitar').style.display = 'none'
@@ -92,6 +92,15 @@ function API () {
           document.getElementById('quitar').style.display = 'inline'
           return verCola.innerHTML = nuevo
         }
+      })
+  }
+  this.final = final => {
+    return this.base_api
+      .get(`clientes/${ticket}/final`)
+      .then(data => {
+        return data.data
+        // console.log(status)
+        // return status
       })
   }
 }

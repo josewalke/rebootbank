@@ -11,6 +11,7 @@ function obtenerValorParametro (sParametroNombre) {
   return null
 }
 var ticket = obtenerValorParametro('ticket')
+document.getElementById('miTicketFinal').innerHTML = ticket
 
 var mode = obtenerValorParametro('mode')
 
@@ -33,7 +34,7 @@ api
     console.log(response)
   })
 
-function updatePendingClients() {
+function updatePendingClients () {
   api
     .delante(ticket)
     .then(response => {
@@ -44,4 +45,16 @@ updatePendingClients()
 
 setInterval(() => {
   updatePendingClients()
+}, 2000)
+function updateFinal () {
+  api.final(ticket)
+    .then(response => {
+      if (response === 'proceso') {
+        document.getElementById('turno').style.display = 'none'
+        document.getElementById('final').style.display = 'inherit'
+      }
+    })
+}
+setInterval(() => {
+  updateFinal()
 }, 2000)

@@ -128,7 +128,7 @@ function miTicket (req, res) {
   clienteModel.findOne({
     ticket: req.params.ticket
   })
-    .then(response => res.json(response.ticket))
+    .then(response => res.json(response))
     .catch((err) => handleError(err, res))
 }
 

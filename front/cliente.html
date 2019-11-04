@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Caja de Ticket</title>
+  <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body class="text-center">
+  <div id="turno" style="display: inherit;">
+    <div>
+      <h1 class="fond-green">Rebootbank</h1>
+    </div>
+    <br><br><br><br>
+    <h1 id="texto-1">
+      <span id="cola"></span>
+      <span id="quitar">personas delante tuyas</span>
+    </h1>
+    <br><br><br><br><br>
+    <h1 id="miTicket"></h1>
+
+    <div class="alerta" style="display:none" data-toggle="modal" data-target="#myModal">
+      <h3>¿Quieres que te lo mandemos por correo ? </h3>
+      <button id="loquiero">Si</button>
+      <button id="noloquiero">No</button>
+    </div>
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Modal Heading</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            Modal body..
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="final" style="display: none;">
+    <div>
+      <h1 class="fond-green">Rebootbank</h1>
+    </div>
+    <br><br><br><br>
+    <h1 id="titulo-final">
+      Es su turno gracias por su espera esperamos verle pronto
+    </h1>
+    <br><br><br><br>
+    <h1 id="miTicketFinal"></h1>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script src="./scripts/api.js"></script>
+  <script src="./scripts/cliente.js"></script>
+</body>
+
+</html>
