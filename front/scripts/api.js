@@ -24,6 +24,76 @@ function API () {
       })
       .catch(err => new Error(err))
   }
+  this.mostrarTicket = verTicket => {
+    return this.base_api
+      .get('users')
+      .then(data => {
+        console.log(data.data)
+        var nuevo = data.data.ticket
+        return verTicket.innerHTML = nuevo
+      })
+  }
+  this.next = procesar => {
+    return this.base_api
+      .get('users/next')
+      .then(data => {
+        console.log(data.data)
+        var nuevo = data.data.ticket
+        return verTicket.innerHTML = nuevo
+      })
+  }
+  this.before = volver => {
+    return this.base_api
+      .get('users/before')
+      .then(data => {
+        console.log(data.data)
+        var nuevo = data.data.ticket
+        return verTicket.innerHTML = nuevo
+      })
+  }
+  this.insertqr = ticket => {
+    return this.base_api
+      .post(`clientes/${ticket}`, {
+        headers: {
+          token: window.localStorage.getItem('token')
+        }
+      })
+      .then(data => {
+        console.log(data.data)
+      })
+  }
+  this.numero = ticket => {
+    return this.base_api
+      .get(`clientes/${ticket}/numero`, {
+        headers: {
+          token: window.localStorage.getItem('token')
+        }
+      })
+      .then(data => {
+        console.log(data.data)
+        var nuevo = data.data
+        return verTicket.innerHTML = nuevo
+      })
+  }
+  this.delante = ticket => {
+    return this.base_api
+      .get(`clientes/${ticket}/cola`, {
+        headers: {
+          token: window.localStorage.getItem('token')
+        }
+      })
+      .then(data => {
+        console.log(data.data)
+        var nuevo = data.data
+        if (nuevo === 0) {
+          document.getElementById('quitar').style.display = 'none'
+          return verCola.innerHTML = 'Enseguida le atenderemos'
+        } else {
+          document.getElementById('quitar').style.display = 'inline'
+          return verCola.innerHTML = nuevo
+        }
+      })
+  }
 }
 
 const api = new API()

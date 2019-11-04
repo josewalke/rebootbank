@@ -7,6 +7,7 @@ config = config[environment]
 
 module.exports = {
   insertCliente,
+  insertCliente2,
   updateClienteProceso,
   updateClienteAtendido,
   updateClienteEmail,
@@ -54,23 +55,22 @@ function insertCliente (req, res) {
     })
 }
 
-// function insertCliente (req, res) {
-//   // let newticket = contartickets
-//   const clienteBody = {
-//     // ticket: newticket
-//     ticket: +req.params.ticket
+function insertCliente2 (req, res) {
+  // let newticket = contartickets
+  const clienteBody = {
+    // ticket: newticket
+    ticket: +req.params.ticket
 
-//   }
-//   clienteModel.findOne(clientBody)
-//     .then(client => {
-//       if (client) { return res.json(client) }
-//       else {
-//         return clienteModel.create(clienteBody)
-//           .then(response => res.json(response))
-//           .catch((err) => handleError(err, res))
-//       }
-//     })
-// }
+  }
+  clienteModel.findOne(clienteBody)
+    .then(client => {
+      if (client) { return res.json(client) } else {
+        return clienteModel.create(clienteBody)
+          .then(response => res.json(response))
+          .catch((err) => handleError(err, res))
+      }
+    })
+}
 
 function contartickets (req, res) {
   return clienteModel.countDocuments((err, count) => {

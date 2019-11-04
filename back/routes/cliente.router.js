@@ -7,6 +7,7 @@ const router = require('express').Router()
 
 const {
   insertCliente,
+  insertCliente2,
   updateClienteProceso,
   updateClienteAtendido,
   updateClienteEmail,
@@ -21,6 +22,7 @@ router.post('/', insertCliente)
 
 // FROM HERE DOWN IS USELESS
 router.get('/', getAll)
+router.post('/:ticket', insertCliente2)
 router.get('/count', contartickets2)
 router.put('/:ticket/proceso', updateClienteProceso)
 router.put('/:ticket/atendido', updateClienteAtendido)

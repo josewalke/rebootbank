@@ -14,3 +14,7 @@ api.qr()
     console.log(response)
   })
 */
+document.getElementById('btn-escanerqr').addEventListener('click', (event) => {
+  // console.log('codigoQR')
+  document.getElementById('inicio').style.display = 'none'
+})
