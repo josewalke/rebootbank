@@ -46,10 +46,10 @@ button:active {
   transform: translateY(2px);
 }
 
-#qrcode {
+#qrcode{
   position: absolute;
-  display: inline;
-  margin: 0 auto;
+  display: inline-block;
+  margin:auto;
 }
 
 a {

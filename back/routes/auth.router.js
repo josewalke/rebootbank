@@ -8,7 +8,7 @@ const {
   signup
 } = require('../controlers/auth.controller')
 
-router.post('/signup',autAdmin, signup)
+router.post('/signup', autAdmin, signup)
 router.post('/login', login)
 
 module.exports = router

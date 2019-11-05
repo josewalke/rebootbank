@@ -18,8 +18,8 @@ function API () {
         var count = data.data
         document.getElementById('qrcode').innerHTML = ''
         var qrcode = new QRCode(document.getElementById('qrcode'), {
-          width: 500,
-          height: 500
+          width: 400,
+          height: 400
         })
         qrcode.makeCode('http://localhost:8080//cola?ticket=' + count + '&mode=QR')
       })
@@ -27,7 +27,10 @@ function API () {
   }
   this.mostrarTicket = verTicket => {
     return this.base_api
-      .get('users')
+      .get('users', {
+        headers: {
+          token: window.localStorage.getItem("token")
+        }})
       .then(data => {
         console.log(data.data)
         var nuevo = data.data.ticket
@@ -36,7 +39,11 @@ function API () {
   }
   this.next = procesar => {
     return this.base_api
-      .get('users/next')
+      .get('users/next', {
+        headers: {
+          token: window.localStorage.getItem("token")
+        }
+      })
       .then(data => {
         console.log(data.data)
         var nuevo = data.data.ticket
@@ -45,7 +52,11 @@ function API () {
   }
   this.before = volver => {
     return this.base_api
-      .get('users/before')
+      .get('users/before', {
+        headers: {
+          token: window.localStorage.getItem("token")
+        }
+      })
       .then(data => {
         console.log(data.data)
         var nuevo = data.data.ticket
@@ -84,7 +95,7 @@ function API () {
         }
       })
       .then(data => {
-        //console.log(data.data)
+        // console.log(data.data)
         var nuevo = data.data
         if (nuevo === 0) {
           document.getElementById('quitar').style.display = 'none'
@@ -103,6 +114,14 @@ function API () {
         // console.log(status)
         // return status
       })
+  }
+  this.actualizar = datos => {
+    return this.base_api
+      .put(`clientes/${datos.ticket}/email`, datos)
+      .then(response => {
+        return response.data
+      })
+      .catch(err => new Error(err))
   }
 }
 

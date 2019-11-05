@@ -1,8 +1,8 @@
 const router = require('express').Router()
 
 const {
-    enviarCorreo,
-    enviarCorreoInsert
+  enviarCorreo,
+  enviarCorreoInsert
 } = require('../controlers/correo.controller');
 
 router.post('/:email', enviarCorreo);

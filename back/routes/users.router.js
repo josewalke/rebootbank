@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {
-  autAdmin
+  autAdmin,
+  autEmpleado
 } = require('../middleware/authentication')
 
 const {
@@ -12,11 +13,11 @@ const {
   beforeCliente
 } = require('../controlers/users.controller')
 
-router.get('/', primerCliente)
-router.get('/next', nextCliente)
-router.get('/before', beforeCliente)
-router.get('/:id', getUserById)
+router.get('/', autEmpleado, primerCliente)
+router.get('/next', autEmpleado, nextCliente)
+router.get('/before', autEmpleado, beforeCliente)
+router.get('/:id', autEmpleado, getUserById)
 router.delete('/:id', autAdmin, deleteUserById)
-router.put('/:id', updateUser)
+router.put('/:id', autEmpleado, updateUser)
 
 module.exports = router

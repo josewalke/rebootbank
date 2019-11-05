@@ -1,6 +1,7 @@
 (function authenticated () {
   if (window.localStorage.getItem('token')) {
-    console.log('user authenticated')
+    console.log(window.localStorage.getItem('token'))
+
   } else {
     console.log('user not authenticated')
   }
@@ -32,8 +33,13 @@ document.getElementById('btn-signup').addEventListener('click', (event) => {
     .catch(function (error) {
       console.log(error.response)
     })
-    setTimeout("location.href='./register.html'")
+  setTimeout("location.href='./register.html'")
 })
 document.getElementById('close').addEventListener('click', (event) => {
-  setTimeout("location.href='./login.html'")
+  window.localStorage.removeItem('token')
+  window.localStorage.removeItem('name')
+  window.localStorage.removeItem('email')
+  window.localStorage.removeItem('rol')
+  window.localStorage.removeItem('lenght')
+  window.location.assign('./login.html')
 })

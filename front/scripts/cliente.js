@@ -15,10 +15,6 @@ document.getElementById('miTicketFinal').innerHTML = ticket
 
 var mode = obtenerValorParametro('mode')
 
-if (mode === 'QR') {
-  document.getElementsByClassName('alerta')[0].style.display = 'block'
-}
-
 api
   .insertqr(ticket)
   .then(response => {
@@ -38,7 +34,7 @@ function updatePendingClients () {
   api
     .delante(ticket)
     .then(response => {
-      console.log(response)
+      // console.log(response)
     })
 }
 updatePendingClients()
@@ -55,6 +51,24 @@ function updateFinal () {
       }
     })
 }
+
 setInterval(() => {
   updateFinal()
 }, 2000)
+
+document.getElementById('btn-enviar')
+  .addEventListener('click', event => {
+    const email = document.getElementById('remitente').value
+    const datos = {
+      email: email,
+      ticket: ticket
+    }
+    // console.log(datos.email)
+    api.actualizar(datos)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(err => new Error(err))
+    document.getElementById('correo').style.display = 'none'
+    document.getElementById('turno').style.display = 'inherit'
+  })

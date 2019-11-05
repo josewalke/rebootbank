@@ -109,10 +109,11 @@ function updateClienteAtendido (req, res) {
 }
 
 function updateClienteEmail (req, res) {
+  console.log(req.body)
   clienteModel.findOneAndUpdate({
     ticket: req.params.ticket
   }, {
-    email: req.body.remitente
+    email: req.body.email
   })
     .then(response => res.json('Actualizado'))
     .catch((err) => handleError(err, res))
