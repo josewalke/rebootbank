@@ -2,35 +2,41 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reboot API Front</title>
-    <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Reboot API Front</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
-    <h1>Welcome to Reboot Academy</h1>
-    <div id="register">
-        <label for="user_name">Name:</label>
-        <input type="text" id="user_name" name="user_name">
+<body class="text-center">
+  <div>
+    <h1 class="fond-green">Rebootbank</h1>
+  </div>
+  <div id="position">
+    <button id="close">
+      <i class="fa fa-power-off" style="font-size:36px"></i>
+    </button>
+  </div>
+  <h1 class="sesion">Registrar nuevo usuario</h1>
+  <div id="register">
+    <label for="user_name">Name:</label>
+    <input type="text" id="user_name" name="user_name">
 
-        <label for="user_email">Email:</label>
-        <input type="text" id="user_email" name="user_email">
+    <label for="user_email">Email:</label>
+    <input type="text" id="user_email" name="user_email">
 
-        <label for="user_password">Password:</label>
-        <input type="password" id="user_password" name="user_password">
+    <label for="user_password">Password:</label>
+    <input type="password" id="user_password" name="user_password">
 
-        <button id="btn-signup">SIGN-UP</button>
-    </div>
-    
-    <div id='lista'>
+    <button id="btn-signup">Registrar</button>
+  </div>
 
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-    <script src="scripts/register.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script src="scripts/register.js"></script>
 </body>
 
 </html>

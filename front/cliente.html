@@ -9,40 +9,20 @@
   <link rel="stylesheet" href="./styles/styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body class="text-center">
-  <div id="inicio" style="display: inherit;">
+  <div id="turno" style="display: inherit;">
     <div>
       <h1 class="fond-green">Rebootbank</h1>
     </div>
 
-    <div class="text-center">
-      <h1 id="title-inicio">¿Cómo quiere su ticket?</h1>
-    </div>
+    <h1 id="texto-1">
+      <span id="cola"></span>
+      <span id="quitar">personas delante tuyas</span>
+    </h1>
 
-    <div id="btn-inicio">
-      <button id="btn-escanerqr">EscanerQR</button>
-
-      <button id="btn-correo">Correo</button>
-    </div>
-  </div>
-  <div id="codigoqr" style="display: none;">
-    <div>
-      <h1 class="fond-green">Rebootbank</h1>
-    </div>
-    <div id="position">
-      <button id="close">
-        <i class="fa fa-exchange" style="font-size:26px"></i>
-      </button>
-    </div>
-    <div style="margin-top:50px;">
-      <h1 id="inline">Escaneé el codigo QR</h1>
-    </div>
-    <div id="qrcode"></div>
-    <br>
-
+    <h1 id="miTicket"></h1>
   </div>
   <div id="correo" style="display:none;">
     <div>
@@ -50,16 +30,46 @@
     </div>
     <div id="margin-correo">
       <label id="label-correo" for="remitente">Introduzca su correo:</label>
+
       <input type="email" id="remitente" name="remitente" value="worktrabajo47@gmail.com">
 
       <button id="btn-enviar">Enviar</button>
     </div>
   </div>
 
+  <div id="final" style="display: none;">
+    <div>
+      <h1 class="fond-green">Rebootbank</h1>
+    </div>
+
+    <h1 id="titulo-final">
+      Es su turno gracias por su espera esperamos verle pronto
+    </h1>
+
+    <h1 id="miTicketFinal"></h1>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-  <script type="text/javascript" src="./scripts/qrcode.min.js"></script>
   <script src="./scripts/api.js"></script>
-  <script src="./scripts/maquina.js"></script>
+  <script src="./scripts/cliente.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script>
+    if (mode === 'QR') {
+      window.onload = Swal.fire({
+        title: 'Desea que le avisemos por correo?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.value) {
+          document.getElementById('turno').style.display = 'none'
+          document.getElementById('correo').style.display = 'inherit'
+        }
+      })
+    }
+  </script>
 </body>
 
 </html>

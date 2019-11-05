@@ -4,9 +4,11 @@
   display: inline-block;
   vertical-align: top;
 }
-body{
+
+body {
   position: relative;
 }
+
 .fond-green {
   background-color: rgb(19, 233, 19);
   padding: 20px;
@@ -23,9 +25,10 @@ body{
   width: 304px;
   height: 258px;
   font-size: 50px;
-  margin-right:100px;
-  outline:none;
+  margin-right: 100px;
+  outline: none;
 }
+
 #btn-correo {
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -35,19 +38,265 @@ body{
   width: 304px;
   height: 258px;
   font-size: 50px;
-  outline:none;
+  outline: none;
 }
+
 button:active {
-  background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(2px);
 }
+
 #qrcode{
-  position: absolute;
   display: inline;
-  margin: 0 auto;
+  margin:0 auto;
+  width: 100%;
 }
-a{
+img{
+  margin:0 auto;
+}
+a {
   position: absolute;
   margin-top: 5rem;
+}
+
+#remitente {
+  width: 800px;
+  height: 108px;
+  left: calc(50% - 314px/2 + 0.5px);
+  top: calc(50% - 58px/2 + 37.5px);
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 15px;
+  outline: none;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+#label-correo {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100px;
+  line-height: 41px;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+
+}
+
+#btn-enviar {
+  width: 200px;
+  height: 100px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  outline: none;
+  font-size: 50px;
+}
+
+#texto-1 {
+  left: calc(50% - 1027px/2 + 0.5px);
+  top: calc(50% - 425px/2 - 0.5px);
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 148px;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  margin-top:50px;
+}
+
+#miTicket {
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 200px;
+  line-height: 74px;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  margin-top:150px;
+}
+
+#titulo-final {
+  left: calc(50% - 634px/2);
+  top: calc(50% - 215px/2 - 107.5px);
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 148px;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}
+
+#miTicketFinal {
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 200px;
+  line-height: 74px;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  margin-top:140px;
+}
+
+#gracias {
+  left: calc(50% - 524px/2);
+  top: calc(50% - 255px/2 + 236.5px);
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 74px;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+
+.titulo-caja {
+  left: calc(50% - 634px/2);
+  top: calc(50% - 215px/2 - 107.5px);
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 90px;
+  line-height: 148px;
+  color: #000000;
+  padding-left: 80px;
+}
+
+#num_ticket {
+  font-size: 100px;
+}
+
+#btn-siguiente{
+  background: rgb(19, 233, 19);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 34px;
+  width: 204px;
+  height: 158px;
+  font-size: 25px;
+  margin-right: 100px;
+  outline: none;
+  color: white;
+}
+#btn-volver{
+  background: rgb(19, 233, 19);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  box-shadow: -5px 5px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 34px;
+  width: 204px;
+  height: 158px;
+  font-size: 25px;
+  outline: none;
+  color: white;
+}
+
+div#login label{
+  display: block;
+  margin: 0 auto;
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+div#login input {
+  width: 600px;
+  height: 98px;
+  left: calc(50% - 314px/2 + 0.5px);
+  top: calc(50% - 58px/2 + 37.5px);
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 15px;
+  outline: none;
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.sesion{
+  margin-top: 20px;
+  font-size: 50px;
+  padding-left: 65px;
+}
+
+#btn-login{
+  width: 150px;
+  height: 50px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  outline: none;
+  font-size: 25px;
+  margin-top: 30px;
+}
+
+div#register label {
+  font-size: 40px;
+}
+
+div#register input {
+  width: 500px;
+  height: 58px;
+  left: calc(50% - 314px/2 + 0.5px);
+  top: calc(50% - 58px/2 + 37.5px);
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 15px;
+  outline: none;
+  font-size: 20px;
+  text-align: center;
+}
+#btn-signup {
+  width: 120px;
+  height: 50px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  outline: none;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 30px;
+}
+#close{
+  border-radius: 10px;
+  outline: none;
+  margin-right: 20px;
+  margin-top: 25px;
+}
+#position{
+  float: right;
+}
+#inline{
+  padding-left: 65px;
+
+}
+img{
+  margin-top: 40px;
+}
+#title-inicio{
+  margin-top: 40px;
+}
+#btn-inicio{
+  margin-top: 50px;
+}
+#margin-correo{
+  margin-top: 100px;
+}
+#btn-enviar{
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
 }

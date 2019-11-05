@@ -7,25 +7,28 @@ const router = require('express').Router()
 
 const {
   insertCliente,
+  insertCliente2,
   updateClienteProceso,
   updateClienteAtendido,
   updateClienteEmail,
   getAll,
-  contartickets,
+  contartickets2,
   miTicket,
   turno,
   salida
 } = require('../controlers/cliente.controller')
 
+router.post('/', insertCliente)
+
+// FROM HERE DOWN IS USELESS
 router.get('/', getAll)
-router.get('/count', contartickets)
-router.post('/:ticket', insertCliente)
+router.post('/:ticket', insertCliente2)
+router.get('/count', contartickets2)
 router.put('/:ticket/proceso', updateClienteProceso)
 router.put('/:ticket/atendido', updateClienteAtendido)
 router.put('/:ticket/email', updateClienteEmail)
 router.get('/:ticket/numero', miTicket)
 router.get('/:ticket/cola', turno)
-router.get('/:ticket/proceso', salida)
-
+router.get('/:ticket/final', salida)
 
 module.exports = router
