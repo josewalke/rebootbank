@@ -38,7 +38,8 @@ function insertCliente (req, res) {
             to: req.body.email, // list of receivers
             subject: 'Rebootbank', // Subject line
             html: `<p>Su ticket es el numero ${newcount}</p>
-                  <button> <a href="http://localhost:8080/cola2.html?ticket=${newcount}"> PULSAME </a> </button>
+                  <p>Si desea ver cuantas personas tiene delante pulse el boton</p>
+                  <button> <a href="http://localhost:8080/cliente.html?ticket=${newcount}&mode=QR"> Mostrar </a> </button>
                   ` // plain text body
           }
           transporter.sendMail(mailOptions, function (err, info) {

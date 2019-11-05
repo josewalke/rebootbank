@@ -1,9 +1,8 @@
 (function authenticated () {
-  if (window.localStorage.getItem('token')) {
-    console.log(window.localStorage.getItem('token'))
-
+  if (window.localStorage.getItem('rol') === 'Admin') {
+    console.log(window.localStorage.getItem('rol'))
   } else {
-    console.log('user not authenticated')
+    window.location.href = 'https://ichef.bbci.co.uk/news/ws/660/amz/worldservice/live/assets/images/2015/04/17/150417194023_einstein-lengua.jpg'
   }
 })()
 

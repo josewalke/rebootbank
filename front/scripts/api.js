@@ -21,7 +21,7 @@ function API () {
           width: 400,
           height: 400
         })
-        qrcode.makeCode('http://localhost:8080//cola?ticket=' + count + '&mode=QR')
+        qrcode.makeCode('http://localhost:8080//caja?ticket=' + count + '&mode=QR')
       })
       .catch(err => new Error(err))
   }

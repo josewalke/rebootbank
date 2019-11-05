@@ -47,11 +47,13 @@ button:active {
 }
 
 #qrcode{
-  position: absolute;
-  display: inline-block;
-  margin:auto;
+  display: inline;
+  margin:0 auto;
+  width: 100%;
 }
-
+img{
+  margin:0 auto;
+}
 a {
   position: absolute;
   margin-top: 5rem;
@@ -69,6 +71,7 @@ a {
   outline: none;
   font-size: 50px;
   text-align: center;
+  margin-top: 50px;
 }
 
 #label-correo {
@@ -79,6 +82,7 @@ a {
   align-items: center;
   text-align: center;
   color: #000000;
+
 }
 
 #btn-enviar {
@@ -103,6 +107,7 @@ a {
   align-items: center;
   text-align: center;
   color: #000000;
+  margin-top:50px;
 }
 
 #miTicket {
@@ -113,8 +118,8 @@ a {
   line-height: 74px;
   align-items: center;
   text-align: center;
-
   color: #000000;
+  margin-top:150px;
 }
 
 #titulo-final {
@@ -139,8 +144,8 @@ a {
   line-height: 74px;
   align-items: center;
   text-align: center;
-
   color: #000000;
+  margin-top:140px;
 }
 
 #gracias {
@@ -165,6 +170,7 @@ a {
   font-size: 90px;
   line-height: 148px;
   color: #000000;
+  padding-left: 80px;
 }
 
 #num_ticket {
@@ -198,7 +204,10 @@ a {
 }
 
 div#login label{
+  display: block;
+  margin: 0 auto;
   font-size: 50px;
+  margin-bottom: 10px;
 }
 div#login input {
   width: 600px;
@@ -212,9 +221,12 @@ div#login input {
   outline: none;
   font-size: 40px;
   text-align: center;
+  margin-bottom: 10px;
 }
 .sesion{
+  margin-top: 20px;
   font-size: 50px;
+  padding-left: 65px;
 }
 
 #btn-login{
@@ -226,6 +238,7 @@ div#login input {
   border-radius: 15px;
   outline: none;
   font-size: 25px;
+  margin-top: 30px;
 }
 
 div#register label {
@@ -255,14 +268,35 @@ div#register input {
   outline: none;
   font-size: 25px;
   text-align: center;
+  margin-top: 30px;
 }
 #close{
-border-radius: 10px;
-outline: none;
-margin-right: 20px;
+  border-radius: 10px;
+  outline: none;
+  margin-right: 20px;
+  margin-top: 25px;
 }
 #position{
-display: flex;
-flex-direction: row;
-justify-content: flex-end;
+  float: right;
+}
+#inline{
+  padding-left: 65px;
+
+}
+img{
+  margin-top: 40px;
+}
+#title-inicio{
+  margin-top: 40px;
+}
+#btn-inicio{
+  margin-top: 50px;
+}
+#margin-correo{
+  margin-top: 100px;
+}
+#btn-enviar{
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
 }
