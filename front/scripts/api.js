@@ -16,6 +16,7 @@ function API () {
       .then(data => {
         // console.log(data.data)
         var count = data.data
+        document.getElementById('qrcode').innerHTML = ''
         var qrcode = new QRCode(document.getElementById('qrcode'), {
           width: 500,
           height: 500

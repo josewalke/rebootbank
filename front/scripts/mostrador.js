@@ -18,3 +18,7 @@ document.getElementById('btn-volver').addEventListener('click', (event) => {
       console.log(response)
     })
 })
+
+document.getElementById('close').addEventListener('click', (event) => {
+  setTimeout("location.href='./login.html'")
+})

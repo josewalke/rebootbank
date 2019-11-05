@@ -8,11 +8,15 @@ document.getElementById('btn-enviar')
         // window.location.href = './inicio.html'
       })
   })
-
-api.qr()
-  .then(response => {
-    console.log(response)
-  })
+function codigoqr () {
+  api.qr()
+    .then(response => {
+      console.log(response)
+    })
+}
+setInterval(() => {
+  codigoqr()
+}, 2000)
 
 document.getElementById('btn-escanerqr').addEventListener('click', (event) => {
   // console.log('codigoQR')

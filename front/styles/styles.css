@@ -162,13 +162,13 @@ a {
   font-family: Rounded Mplus 1c Bold;
   font-style: normal;
   font-weight: bold;
-  font-size: 100px;
+  font-size: 90px;
   line-height: 148px;
   color: #000000;
 }
 
 #num_ticket {
-  font-size: 200px;
+  font-size: 100px;
 }
 
 #btn-siguiente{
@@ -177,9 +177,9 @@ a {
   box-sizing: border-box;
   box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
   border-radius: 34px;
-  width: 304px;
-  height: 258px;
-  font-size: 50px;
+  width: 204px;
+  height: 158px;
+  font-size: 25px;
   margin-right: 100px;
   outline: none;
   color: white;
@@ -190,9 +190,9 @@ a {
   box-sizing: border-box;
   box-shadow: -5px 5px 4px rgba(0, 0, 0, 0.25);
   border-radius: 34px;
-  width: 304px;
-  height: 258px;
-  font-size: 50px;
+  width: 204px;
+  height: 158px;
+  font-size: 25px;
   outline: none;
   color: white;
 }
@@ -201,7 +201,7 @@ div#login label{
   font-size: 50px;
 }
 div#login input {
-  width: 700px;
+  width: 600px;
   height: 98px;
   left: calc(50% - 314px/2 + 0.5px);
   top: calc(50% - 58px/2 + 37.5px);
@@ -226,4 +226,43 @@ div#login input {
   border-radius: 15px;
   outline: none;
   font-size: 25px;
+}
+
+div#register label {
+  font-size: 40px;
+}
+
+div#register input {
+  width: 500px;
+  height: 58px;
+  left: calc(50% - 314px/2 + 0.5px);
+  top: calc(50% - 58px/2 + 37.5px);
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 15px;
+  outline: none;
+  font-size: 20px;
+  text-align: center;
+}
+#btn-signup {
+  width: 120px;
+  height: 50px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  outline: none;
+  font-size: 25px;
+  text-align: center;
+}
+#close{
+border-radius: 10px;
+outline: none;
+margin-right: 20px;
+}
+#position{
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
 }
