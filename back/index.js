@@ -1,5 +1,4 @@
 process.stdout.write('\033c');
-process.stdout.write('\033c');
 
 const cors = require('cors')
 const express = require('express')
