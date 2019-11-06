@@ -224,7 +224,11 @@ div#login input {
   margin-bottom: 10px;
 }
 .sesion{
-  margin-top: 20px;
+  margin-top: 30px;
+  font-size: 50px;
+}
+.sesion2 {
+  margin-top: 30px;
   font-size: 50px;
   padding-left: 65px;
 }
